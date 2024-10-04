@@ -60,7 +60,7 @@ const CosmosDelegate = () => {
 
 			const timeout = setTimeout(() => {
 				setIsLoading(false)
-			}, 12_000)
+			}, 15_000)
 
 			return () => clearTimeout(timeout)
 		}

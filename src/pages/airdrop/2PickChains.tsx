@@ -956,7 +956,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 									</HStack>
 								</Skeleton>
 							</HStack>
-							<HStack
+							{/*	<HStack
 								_dark={{
 									backdropFilter: "blur(32px)",
 									background:
@@ -996,7 +996,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 										/>
 									</HStack>
 								</Skeleton>
-							</HStack>
+							</HStack> */}
 							<IconButton
 								background="-webkit-linear-gradient(45deg, #61a9bb, #ec80fe)"
 								paddingRight={{ base: "0rem", md: "0rem" }}
