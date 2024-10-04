@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-unassigned-import
 import "react-toastify/dist/ReactToastify.css"
-import { FooterMobile2 } from "./components/Layout/Footer/FooterMobile2"
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react"
 import { NeutronProvider } from "@components/SeiProvider"
 import { QueryClientProvider } from "@tanstack/react-query"
@@ -39,7 +38,6 @@ const App = () => {
 					<NeutronProvider>
 						<Router>
 							<MotionConfig transition={{ duration: 0.25, type: "tween" }}>
-								
 								<Layout>
 									<RouterSetup />
 								</Layout>

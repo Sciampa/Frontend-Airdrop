@@ -30,6 +30,7 @@ import CosmosIBCtransfer from "./components/getCosmos/getCosmosIBCtransfer"
 import CosmosRewards from "./components/getCosmos/getCosmosRewards"
 import CosmosUndelegate from "./components/getCosmos/getCosmosUndelegate"
 import CosmosVotes from "./components/getCosmos/getCosmosVotes"
+import { useCosmosTotalParticles } from "./components/getCosmos/getTotalParticles"
 import DydxDelegate from "./components/getDydx/getDydxDelegate"
 import DydxIBCreceived from "./components/getDydx/getDydxIBCreceived"
 import DydxIBCtransfer from "./components/getDydx/getDydxIBCtransfer"
@@ -165,7 +166,6 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 	const [disabledBoxes, setDisabledBoxes] = useState<string[]>([
 		"1",
 		"2",
-		"3",
 		"4",
 		"5",
 		"6",
@@ -197,6 +197,8 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 	const toggleOsmosis = () => setIsOsmosisExpanded(!isOsmosisExpanded)
 	const toggleSei = () => setIsSeiExpanded(!isSeiExpanded)
 	const toggleStride = () => setIsStrideExpanded(!isStrideExpanded)
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { totalParticles, dividedParticles } = useCosmosTotalParticles()
 
 	const { connect } = useChain("akash")
 
@@ -979,13 +981,18 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 							>
 								<Skeleton isLoaded={Boolean(EleBalance)}>
 									<HStack>
-										<Text fontSize="15" mr={{ base: "-0.5rem", md: "0rem" }}>
-											{shortenNumber(convertMicroDenomToDenom(EleBalance, 6), 2)}
+										<Text
+											fontSize={{ base: "1rem", md: "15" }}
+											mr={{ base: "-0.5rem", md: "0rem" }}
+										>
+											~{dividedParticles !== null ? dividedParticles.toFixed(2) : "Loading.."}
 										</Text>
 										<Image
 											src="/assets/tokens/electron.png"
 											w={{ base: "1rem", md: "1.2rem" }}
-											mr={{ base: "0.5rem", md: "0.7rem" }}
+											ml={{ base: "0rem", md: "-0.4rem" }}
+											mr={{ base: "0.8rem", md: "0.9rem" }}
+											mt={{ base: "-0.024rem", md: "0.06rem" }}
 										/>
 									</HStack>
 								</Skeleton>
