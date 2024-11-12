@@ -2099,6 +2099,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chain-registry/types@npm:0.44.3":
+  version: 0.44.3
+  resolution: "@chain-registry/types@npm:0.44.3"
+  checksum: 8e77d657f64524070409efd03335fe2ff255ff6bf36b802d8e93c175d87e68312675c73729d9fcfbaa4d6472928f8832a8fe823f603ed19d6b014d51b2c0c57f
+  languageName: node
+  linkType: hard
+
+"@chain-registry/types@npm:^0.45.1":
+  version: 0.45.86
+  resolution: "@chain-registry/types@npm:0.45.86"
+  checksum: 0ccb94498768faf356d6f1ca93db4ca7e2cdb2c28b706a5474f9c9c96b04406fcf38c4e1e8612602a5b060d1ef76b2f427c76be93b61249f1b35b2d12e883c09
+  languageName: node
+  linkType: hard
+
 "@chain-registry/types@npm:^0.45.25":
   version: 0.45.25
   resolution: "@chain-registry/types@npm:0.45.25"
@@ -2113,7 +2127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chain-registry/types@npm:^0.50.11, @chain-registry/types@npm:latest":
+"@chain-registry/types@npm:^0.50.11":
   version: 0.50.11
   resolution: "@chain-registry/types@npm:0.50.11"
   checksum: 97f812af8fe8722d35fbdd0d276de5800ac320f5cc8bb6b4d5bae8040f73550d88d4828d2415c488d5eb693e206e45340188f4176653e89505da42544a1f1c84
@@ -4462,7 +4476,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cosmos-kit/core@npm:^2.15.0":
+"@cosmos-kit/core@npm:^2.13.1, @cosmos-kit/core@npm:^2.15.0":
   version: 2.15.0
   resolution: "@cosmos-kit/core@npm:2.15.0"
   dependencies:
@@ -4577,7 +4591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cosmos-kit/react-lite@npm:^2.15.1":
+"@cosmos-kit/react-lite@npm:^2.13.0":
   version: 2.15.1
   resolution: "@cosmos-kit/react-lite@npm:2.15.1"
   dependencies:
@@ -4593,13 +4607,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cosmos-kit/react@npm:^2.20.1":
-  version: 2.20.1
-  resolution: "@cosmos-kit/react@npm:2.20.1"
+"@cosmos-kit/react@npm:2.18.0":
+  version: 2.18.0
+  resolution: "@cosmos-kit/react@npm:2.18.0"
   dependencies:
-    "@chain-registry/types": ^0.46.11
-    "@cosmos-kit/core": ^2.15.0
-    "@cosmos-kit/react-lite": ^2.15.1
+    "@chain-registry/types": ^0.45.1
+    "@cosmos-kit/core": ^2.13.1
+    "@cosmos-kit/react-lite": ^2.13.0
     "@react-icons/all-files": ^4.1.0
   peerDependencies:
     "@interchain-ui/react": ^1.23.9
@@ -4607,7 +4621,7 @@ __metadata:
     "@types/react-dom": ">= 17"
     react: ^18
     react-dom: ^18
-  checksum: 6849c61f7e1a2663bd255b7351bfcfb71681431abcc4d6aa45f4d65bb461d9d75538ef849b9816b8a12b3826c94749d40c40125567ed80e9342a83c530104491
+  checksum: 2d676a2fa6e7be55a8b285d6190672fb78fa2fa992a24d7b44e7af289bffb9061e83e9fdea963ef08cac3bf76913d41518b98b21bed896a777c89a6f1809740e
   languageName: node
   linkType: hard
 
@@ -15360,7 +15374,7 @@ __metadata:
   dependencies:
     "@amplitude/analytics-browser": ^2.1.3
     "@chain-registry/client": latest
-    "@chain-registry/types": latest
+    "@chain-registry/types": 0.44.3
     "@chakra-ui/anatomy": ^2.2.0
     "@chakra-ui/cli": ^2.4.1
     "@chakra-ui/icons": ^2.1.1
@@ -15378,7 +15392,7 @@ __metadata:
     "@cosmos-kit/core": ^2.15.0
     "@cosmos-kit/keplr": ^2.14.1
     "@cosmos-kit/leap": ^2.14.1
-    "@cosmos-kit/react": ^2.20.1
+    "@cosmos-kit/react": 2.18.0
     "@electronprotocol/contracts": 1.0.4
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0

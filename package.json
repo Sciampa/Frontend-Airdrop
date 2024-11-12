@@ -34,7 +34,7 @@
     "@cosmos-kit/core": "^2.15.0",
     "@cosmos-kit/keplr": "^2.14.1",
     "@cosmos-kit/leap": "^2.14.1",
-    "@cosmos-kit/react": "^2.20.1",
+    "@cosmos-kit/react": "2.18.0",
     "@electronprotocol/contracts": "1.0.4",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
@@ -106,7 +106,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@chain-registry/types": "latest",
+    "@chain-registry/types": "0.44.3",
     "@chakra-ui/cli": "^2.4.1",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
