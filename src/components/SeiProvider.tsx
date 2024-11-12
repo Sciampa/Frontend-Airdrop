@@ -6,10 +6,10 @@ import { Registry } from "@cosmjs/proto-signing"
 import { type AminoConverters } from "@cosmjs/stargate"
 // import { GasPrice } from "@cosmjs/stargate"
 import { type ChainName } from "@cosmos-kit/core"
-import { SigningCosmWasmClientOptions } from '@cosmos-kit/core/node_modules/@cosmjs/cosmwasm-stargate/build/signingcosmwasmclient'
-import { Decimal } from '@cosmos-kit/core/node_modules/@cosmjs/math/build/decimal'
-import { AminoTypes } from '@cosmos-kit/core/node_modules/@cosmjs/stargate/build/aminotypes'
-import { GasPrice } from '@cosmos-kit/core/node_modules/@cosmjs/stargate/build/fee'
+import { type SigningCosmWasmClientOptions } from "@cosmos-kit/core/node_modules/@cosmjs/cosmwasm-stargate/build/signingcosmwasmclient"
+import { Decimal } from "@cosmos-kit/core/node_modules/@cosmjs/math/build/decimal"
+import { AminoTypes } from "@cosmos-kit/core/node_modules/@cosmjs/stargate/build/aminotypes"
+import { GasPrice } from "@cosmos-kit/core/node_modules/@cosmjs/stargate/build/fee"
 import { wallets as keplrWallets } from "@cosmos-kit/keplr"
 import { wallets as leapWallets } from "@cosmos-kit/leap"
 import { ChainProvider } from "@cosmos-kit/react"
@@ -25,42 +25,24 @@ import { assets, chains } from "chain-registry"
 import { useMemo } from "react"
 
 export const NeutronProvider = ({ children }: { children?: React.ReactNode }) => {
-	const neutronMainnet: Chain = useMemo(() => {
-		const neutronChain = {
+	const neutronMainnet = useMemo<Chain>(
+		() => ({
 			apis: {
 				grpc: [
-					{
-						address: "neutron-grpc.publicnode.com:443",
-						provider: "Neutron"
-					},
-					{
-						address: "grpc.baryon.remedy.tm.p2p.org:443",
-						provider: "P2P.ORG"
-					}
+					{ address: "neutron-grpc.publicnode.com:443", provider: "Neutron" },
+					{ address: "grpc.baryon.remedy.tm.p2p.org:443", provider: "P2P.ORG" }
 				],
 				rest: [
-					{
-						address: "https://neutron-rest.publicnode.com",
-						provider: "Neutron"
-					},
-					{
-						address: "https://api.pion.remedy.tm.p2p.org",
-						provider: "P2P.ORG"
-					},
-					{
-						address: "https://rest.baryon-sentry-01.rs-testnet.polypore.xyz",
-						provider: "Hypha"
-					}
+					{ address: "https://neutron-rest.publicnode.com", provider: "Neutron" },
+					{ address: "https://api.pion.remedy.tm.p2p.org", provider: "P2P.ORG" },
+					{ address: "https://rest.baryon-sentry-01.rs-testnet.polypore.xyz", provider: "Hypha" }
 				],
-				rpc: [
-					{
-						address: "https://rpc.electronprotocol.io:443"
-					}
-				]
+				rpc: [{ address: "https://rpc.electronprotocol.io:443" }]
 			},
 			bech32_prefix: "neutron",
 			chain_id: "neutron-1",
 			chain_name: "neutron",
+			chain_type: "cosmos",
 			daemon_name: "neutrond",
 			explorers: [],
 			fees: {
@@ -77,21 +59,18 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 			network_type: "mainnet",
 			pretty_name: "Neutron",
 			slip44: 118,
-			staking: {
-				staking_tokens: [{ denom: "untrn" }]
-			},
+			staking: { staking_tokens: [{ denom: "untrn" }] },
 			status: "live",
 			website: "https://neutron.org"
-		}
-		console.log("Neutron Mainnet Chain Object:", neutronChain)
-		return neutronChain
-	}, [])
+		}),
+		[]
+	)
 
 	return (
 		<ChainProvider
-			assetLists={assets}
+			assetLists={assets as never}
 			logLevel="DEBUG"
-			chains={[...chains, neutronMainnet]}
+			chains={[...(chains as never), neutronMainnet]}
 			defaultNameService="icns"
 			endpointOptions={{
 				endpoints: {
