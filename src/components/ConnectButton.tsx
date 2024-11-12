@@ -2,7 +2,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unassigned-import
 import "react-tooltip/dist/react-tooltip.css"
 import { ToolsButton } from "./ToolsSettings"
-import { InfoIcon } from "@chakra-ui/icons"
 import {
 	Box,
 	Button,
@@ -18,7 +17,6 @@ import {
 	VStack
 } from "@chakra-ui/react"
 import { useChain } from "@cosmos-kit/react"
-import { keyframes } from "@emotion/react"
 import { useTokenBalance } from "@hooks/tokens/query/useTokenBalance"
 import { AnimatePresence, motion, type Variants } from "framer-motion"
 import { type FC, useEffect } from "react"
@@ -32,8 +30,6 @@ import {
 } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 import { toast } from "react-toastify"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Tooltip } from "react-tooltip"
 import { convertMicroDenomToDenom } from "utils/tokens/helpers"
 import shortenNumber from "utils/ui/shortenNumber"
 import truncateAddress from "utils/ui/truncateAddress"
@@ -41,18 +37,6 @@ import truncateAddress from "utils/ui/truncateAddress"
 export type ConnectButtonProps = ButtonProps & {
 	activeIndex?: number
 }
-
-const gradientAnimation = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-`
 
 const connectWalletVariants: Variants = {
 	hide: {
@@ -104,11 +88,6 @@ const ConnectButton: FC<ConnectButtonProps> = () => {
 	const { address, openView, isWalletConnected } = useChain(import.meta.env.VITE_NEUTRONNETWORK)
 
 	const { onCopy, setValue } = useClipboard("")
-
-	// TODO: Add Electron denom once minted
-	const [ParticleBalance] = useTokenBalance(
-		"factory/neutron14n0asvvxcks0x3t88chhhwzeesckekt5tvsc26/PARTICLE"
-	)
 	const [EleBalance] = useTokenBalance("factory/neutron13r3st22qa04c8q0d6elg4eyc55vcyrdhgcjm9f/ELE")
 	const [ntrnBalance] = useTokenBalance("untrn")
 
@@ -200,68 +179,6 @@ const ConnectButton: FC<ConnectButtonProps> = () => {
 									</Flex>
 								</Box>
 								<Divider maxW="95%" />
-								<HStack justify="center" w="full">
-									<Image src="/assets/tokens/particle.png" w="1rem" ml="0.8rem" />
-									<Text fontFamily="body" fontSize="md" fontWeight="900" textAlign="start" w="full">
-										{shortenNumber(convertMicroDenomToDenom(ParticleBalance, 6), 2)}
-									</Text>
-									<Text
-										fontFamily="body"
-										fontSize="sm"
-										fontWeight="900"
-										textAlign="start"
-										w="full"
-										display="inline-flex"
-										alignItems="center"
-									>
-										<span
-											style={{
-												animation: `${gradientAnimation} 2s ease infinite`,
-												background: "-webkit-linear-gradient(45deg, #61a9bb, #ec80fe)",
-												backgroundSize: "400% 400%",
-												marginRight: "4px",
-												WebkitBackgroundClip: "text",
-												WebkitTextFillColor: "transparent"
-											}}
-										>
-											Particles
-										</span>
-									</Text>
-									{isWalletConnected && (
-										<a style={{ position: "relative" }}>
-											<Icon
-												as={InfoIcon}
-												data-tooltip-id="my-tooltip"
-												boxSize={2}
-												mb={3}
-												py={0}
-												ml={{ base: -10, md: -6, sm: 2 }}
-												mt={0}
-												color="gray.300"
-											/>
-										</a>
-									)}
-								</HStack>
-								<Divider maxW="95%" />
-								<Tooltip
-									id="my-tooltip"
-									style={{
-										background: "linear-gradient(to right, #61a9bb, #ec80fe)",
-										borderRadius: "10px",
-										fontSize: "0.5rem",
-										marginLeft: "0em",
-										marginTop: "0rem",
-										textAlign: "center"
-									}}
-								>
-									<div>
-										<p>Liquidity providers are eligible</p>
-										<p>to earn $Particles rewards.</p>
-										<p>These rewards will be swapped to</p>
-										<p>$ELE, the official governance</p>
-										<p>token of Electron once it goes live.</p>
-									</div>
-								</Tooltip>
 								<HStack
 									align="end"
 									animate="show"

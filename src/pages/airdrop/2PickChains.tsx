@@ -74,7 +74,6 @@ import {
 	Box,
 	Button,
 	Collapse,
-	Divider,
 	Flex,
 	Heading,
 	HStack,
@@ -93,7 +92,6 @@ import { convertMicroDenomToDenom } from "@utils/tokens/helpers"
 import shortenNumber from "@utils/ui/shortenNumber"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import truncateAddress from "utils/ui/truncateAddress"
 
 const gradientAnimation = keyframes`
   0% {
@@ -120,7 +118,6 @@ type ImageData = {
 }
 
 const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
-	const { address, isWalletConnected } = useChain(import.meta.env.VITE_NEUTRONNETWORK)
 	const [selectionMade, setSelectionMade] = useState(false)
 	const [isVisible, setIsVisible] = useState(true)
 	const [isNobleSelected, setIsNobleSelected] = useState(false)
@@ -134,9 +131,6 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 	const [isSeiSelected, setIsSeiSelected] = useState(false)
 	const [isStrideSelected, setIsStrideSelected] = useState(false)
 	const [EleBalance] = useTokenBalance("factory/neutron13r3st22qa04c8q0d6elg4eyc55vcyrdhgcjm9f/ELE")
-	const [ParticleBalance] = useTokenBalance(
-		"factory/neutron14n0asvvxcks0x3t88chhhwzeesckekt5tvsc26/PARTICLE"
-	)
 	const [selectionCount, setSelectionCount] = useState(0)
 	const [nextButtonClicked, setNextButtonClicked] = useState(false)
 	const [isNobleExpanded, setIsNobleExpanded] = useState(false)
@@ -2244,56 +2238,6 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 					)}
 				</Flex>
 			</Flex>
-			<>
-				{isWalletConnected && (
-					<Flex
-						_dark={{ bg: "rgb(30, 41, 59)", textColor: "white" }}
-						textColor="black"
-						flexDir="column"
-						px={2}
-						py={3}
-						bg="rgb(255, 255, 255)"
-						rounded="1.25em"
-						shadow="md"
-						w="full"
-						maxW="5xl"
-						justifyContent="space-between"
-						mt="0rem"
-						mb="1rem"
-					>
-						<Text fontWeight="600" textAlign="center">
-							Particle Reward Program
-						</Text>
-						<Divider mb="0.7rem" maxW="100%" />
-						<HStack justify="center" w="full">
-							<Image src="/assets/tokens/wallet.png" w="1.5rem" ml="1.5rem" />
-							<Text
-								bgClip="text"
-								bgGradient="linear(45deg, #4b6cb7,brand.2)"
-								fontFamily="heading"
-								fontSize="md"
-								fontWeight="900"
-								mb={0.5}
-								textAlign="start"
-								w="full"
-							>
-								{truncateAddress(address, 8, 8)}
-							</Text>
-							<Text
-								fontFamily="body"
-								fontSize="md"
-								fontWeight="700"
-								textAlign="end"
-								w="full"
-								mb="0.1rem"
-							>
-								{shortenNumber(convertMicroDenomToDenom(ParticleBalance, 6), 2)}
-							</Text>
-							<Image src="/assets/tokens/particle.png" w="1rem" mr="1.5rem" />
-						</HStack>
-					</Flex>
-				)}
-			</>
 		</Flex>
 	)
 }
