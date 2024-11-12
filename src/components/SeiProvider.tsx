@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unassigned-import
+import "@walletconnect/react-native-compat"
 import { getModal } from "./WalletModal/getModal"
 import { type Chain } from "@chain-registry/types"
 // import { Decimal } from "@cosmjs/math"
@@ -238,7 +240,7 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 								: "https://testnet.electronprotocol.io"
 					},
 					name: "Electron Protocol",
-					projectId: import.meta.env.VITE_WCCLIENT as string,
+					projectId: import.meta.env.VITE_WCCLIENT,
 					relayUrl: "wss://relay.walletconnect.org"
 				}
 			}}
