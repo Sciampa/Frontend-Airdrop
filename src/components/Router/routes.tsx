@@ -6,10 +6,6 @@ import { type PathRouteProps } from "react-router-dom"
 export const routes: PathRouteProps[] = [
 	{
 		element: <Airdrop />,
-		path: "/airdrop"
+		path: "*" // Catch-all path to load Airdrop as the default page
 	}
-	// {
-	//	element: <Rwa />,
-	//	path: "/rwasiuuu"
-	// },
 ]

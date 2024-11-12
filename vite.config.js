@@ -82,7 +82,7 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       hmr: true,
-      open: '/airdrop',
+      open: '/',
       proxy: {
         '/api': {
           target: 'https://rpc.electronprotocol.io:443',
