@@ -259,7 +259,7 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 								: "https://testnet.electronprotocol.io"
 					},
 					name: "Electron Protocol",
-					projectId: import.meta.env.VITE_WCCLIENT,
+					projectId: "26a1749294f87bdb977a10767f9b75ff",
 					relayUrl: "wss://relay.walletconnect.org"
 				}
 			}}
