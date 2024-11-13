@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 /* eslint-disable no-console */
 import { getModal } from "./WalletModal/getModal"
 import { type Chain } from "@chain-registry/types"
@@ -6,7 +5,6 @@ import { type Chain } from "@chain-registry/types"
 import { Registry } from "@cosmjs/proto-signing"
 import { type AminoConverters } from "@cosmjs/stargate"
 // import { GasPrice } from "@cosmjs/stargate"
-import { type MainWalletBase } from "@cosmos-kit/core"
 import { type ChainName } from "@cosmos-kit/core"
 import { type SigningCosmWasmClientOptions } from "@cosmos-kit/core/node_modules/@cosmjs/cosmwasm-stargate/build/signingcosmwasmclient"
 import { Decimal } from "@cosmos-kit/core/node_modules/@cosmjs/math/build/decimal"
@@ -257,19 +255,16 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 								: "Neutron Network Testnet",
 						url:
 							import.meta.env.VITE_NEUTRONNETWORK === "neutron"
-								? "https://airdrop.electronprotocol.io"
+								? "https://app.electronprotocol.io"
 								: "https://testnet.electronprotocol.io"
 					},
-					name: "Electron",
-					projectId: "26a1749294f87bdb977a10767f9b75ff",
-					relayUrl: "wss://relay.walletconnect.com"
+					name: "Electron Protocol",
+					projectId: import.meta.env.VITE_WCCLIENT,
+					relayUrl: "wss://relay.walletconnect.org"
 				}
 			}}
 			walletModal={getModal()}
-			wallets={[
-				...(keplrWallets as unknown as MainWalletBase[]),
-				...(leapWallets as unknown as MainWalletBase[])
-			]}
+			wallets={[...keplrWallets, ...leapWallets]}
 		>
 			{children}
 		</ChainProvider>
