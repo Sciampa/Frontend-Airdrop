@@ -355,7 +355,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 			h="full"
 			mt={-4}
 			initial={{ opacity: 0 }}
-			p={{ base: 5, lg: 24, md: 16 }}
+			p={{ base: 0, lg: 24, md: 16 }}
 			w="full"
 			justifyContent="center"
 		>
@@ -463,8 +463,8 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 												cursor={disabledBoxes.includes(image.id) ? "not-allowed" : "pointer"}
 												w={
 													rowIndex === 0 && imageIndex === 0
-														? { base: "15em", md: "307px" }
-														: { base: "7em", md: "153.5px" }
+														? { base: "19em", md: "307px" }
+														: { base: "6em", md: "153.5px" }
 												}
 												h={{ base: "4em", md: "80px" }}
 												opacity={isBoxSelected[image.id] ? 0.9 : 0.4}
