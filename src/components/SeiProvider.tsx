@@ -248,21 +248,8 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 			}}
 			walletConnectOptions={{
 				signClient: {
-					metadata: {
-						description: "Bridging the gap between CEX and DeFi",
-						icons: ["/assets/electron.png"],
-						name:
-							import.meta.env.VITE_NEUTRONNETWORK === "neutron"
-								? "Neutron Network"
-								: "Neutron Network Testnet",
-						url:
-							import.meta.env.VITE_NEUTRONNETWORK === "neutron"
-								? "https://airdrop.electronprotocol.io"
-								: "https://testnet.electronprotocol.io"
-					},
-					name: "Electron Protocol",
 					projectId: "26a1749294f87bdb977a10767f9b75ff",
-					relayUrl: "wss://relay.walletconnect.org"
+					relayUrl: "wss://relay.walletconnect.com"
 				}
 			}}
 			walletModal={getModal()}
