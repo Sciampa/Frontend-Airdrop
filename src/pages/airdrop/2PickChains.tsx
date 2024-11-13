@@ -380,6 +380,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 				bg="rgb(255, 255, 255)"
 				rounded="1.25em"
 				shadow="md"
+				border="1px solid rgba(224, 230, 255, 0.10)"
 				w="full"
 				maxW="5xl"
 				justifyContent="space-between"
@@ -396,21 +397,40 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 						w="full"
 						maxW="100%"
 					>
-						<HStack w="full">
+						<VStack w="full">
 							<Text
 								fontFamily="body"
-								fontSize={{ base: "0.6rem", md: "0.7rem" }}
+								fontSize={{ base: "0.75rem", md: "0.7rem" }}
 								fontWeight="600"
 								textAlign="center"
 								w="full"
 								alignItems="start"
 							>
-								Ready to claim your $ELE? Safely connect the wallet used for your Electron
-								interactions or the one holding/staking eligible Cosmos tokens. Reminder: A secure
-								connection is essential to successfully claim your $ELE. We prioritize your security
-								and privacy every step of the way.
+								Ready to claim your $ELE?
 							</Text>
-						</HStack>
+							<Text
+								fontFamily="body"
+								fontSize={{ base: "0.75rem", md: "0.7rem" }}
+								fontWeight="600"
+								textAlign="center"
+								w="full"
+								alignItems="start"
+							>
+								Safely connect the wallet used for your Electron interactions or the one
+								holding/staking eligible Cosmos tokens.
+							</Text>
+							<Text
+								fontFamily="body"
+								fontSize={{ base: "0.75rem", md: "0.7rem" }}
+								fontWeight="600"
+								textAlign="center"
+								w="full"
+								alignItems="start"
+							>
+								Reminder: A secure connection is essential to successfully claim your $ELE. We
+								prioritize your security and privacy every step of the way.
+							</Text>
+						</VStack>
 					</Flex>
 				)}
 				<Flex
@@ -443,8 +463,8 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 												cursor={disabledBoxes.includes(image.id) ? "not-allowed" : "pointer"}
 												w={
 													rowIndex === 0 && imageIndex === 0
-														? { base: "10em", md: "307px" }
-														: { base: "5em", md: "153.5px" }
+														? { base: "15em", md: "307px" }
+														: { base: "7em", md: "153.5px" }
 												}
 												h={{ base: "4em", md: "80px" }}
 												opacity={isBoxSelected[image.id] ? 0.9 : 0.4}
@@ -493,7 +513,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 						<Flex alignItems="center" justifyContent="space-between">
 							<Text
 								fontFamily="body"
-								fontSize={{ base: "0.6rem", md: "sm" }}
+								fontSize={{ base: "0.75rem", md: "sm" }}
 								fontWeight="900"
 								position="relative"
 								textAlign="left"
@@ -505,12 +525,12 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 							</Text>
 							<Text
 								fontFamily="body"
-								fontSize={{ base: "0.6rem", md: "sm" }}
+								fontSize={{ base: "0.75rem", md: "sm" }}
 								fontWeight="900"
 								position="relative"
 								w="full"
 								alignItems="center"
-								mr={{ base: "0em", md: "0em" }}
+								mr={{ base: "-7em", md: "0em" }}
 							>
 								Wallets
 							</Text>
@@ -520,7 +540,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 									h={{ base: "1.8rem", md: "2rem" }}
 									px={1}
 									position="relative"
-									fontSize={{ base: "0.5rem", md: "1rem" }}
+									fontSize={{ base: "0.75rem", md: "1rem" }}
 									rounded="0.7em"
 									colorScheme="blue" // Change color or any other property as needed
 									onClick={() => console.log("Another action")}
@@ -537,13 +557,13 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 									h={{ base: "1.8rem", md: "2rem" }}
 									px={1}
 									position="relative"
-									fontSize={{ base: "0.5rem", md: "1rem" }}
+									fontSize={{ base: "0.75rem", md: "1rem" }}
 									rounded="0.7em"
 									colorScheme="blue"
 									onClick={handleClick}
 									mt={0}
 									pos="relative"
-									w={{ base: "130%", md: "23%" }}
+									w={{ base: "40%", md: "23%" }}
 									shadow="rgba(59, 130, 246, 0.42) 0px 0px 10px, rgba(255, 255, 255, 0.2) 0px 1px 0px inset, rgba(0, 0, 0, 0.15) 0px -3px 0px inset, rgb(59, 130, 246) 0px 0px 7px inset"
 								>
 									Check
@@ -2199,7 +2219,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 							alignSelf="end"
 							bgGradient="linear(45deg, #4b6cb7, brand.2)"
 							color="gray.100"
-							fontSize={{ base: "8", md: "16" }}
+							fontSize={{ base: "16", md: "16" }}
 							maxW={{ base: "6rem", md: "6rem" }}
 							mt={2}
 							rounded="0.9em"
@@ -2223,7 +2243,7 @@ const Pickchains: React.FC<PickchainsProps> = ({ onPrev }) => {
 							alignSelf="end"
 							bgGradient="linear(45deg, #4b6cb7, brand.2)"
 							color="gray.100"
-							fontSize={{ base: "8", md: "16" }}
+							fontSize={{ base: "16", md: "16" }}
 							maxW="6rem"
 							mt={2}
 							ml={{ base: 0, md: 0 }}

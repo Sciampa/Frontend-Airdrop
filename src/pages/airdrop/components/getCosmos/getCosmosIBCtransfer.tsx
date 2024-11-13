@@ -17,6 +17,7 @@ type AddressData = {
 const CosmosIBCreceived = () => {
 	const { address, isWalletConnected } = useChain("cosmoshub")
 	const [walletAddress, setWalletAddress] = useState<string>("")
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [percentage, setPercentage] = useState<number | null>(null)
 	const [particles, setParticles] = useState<number | null>(null) // Store particles as number
 	const [isLoading, setIsLoading] = useState<boolean>(true) // Loading state
@@ -67,40 +68,35 @@ const CosmosIBCreceived = () => {
 
 	return (
 		<Flex alignItems="center" flexDirection="column">
-			<Text fontSize={{ base: "0.35rem", md: "0.5rem" }} ml="0">
+			<Text fontSize={{ base: "0.75rem", md: "0.5rem" }} ml="0">
 				IBC Transfers
 			</Text>
 
 			{isLoading ? (
 				<>
 					<Spinner size="sm" />
-					<Text fontSize={{ base: "0.35rem", md: "0.5rem" }} ml="0">
+					<Text fontSize={{ base: "0.75rem", md: "0.5rem" }} ml="0">
 						Loading data...
 					</Text>
 				</>
 			) : (
-				<>
-					<Text fontSize={{ base: "0.35rem", md: "0.5rem" }} ml="0">
-						{percentage !== null ? percentage + "%" : "Percentage: N/A"}
-					</Text>
-					<Flex
-						alignItems="center"
-						fontWeight="bold"
-						fontSize={{ base: "0.35rem", md: "1rem" }}
-						ml="0"
-					>
-						{particles !== null ? particles.toFixed(2) : "Not eligible"}
-						{particles !== null && (
-							<Image
-								src="/assets/tokens/particle.png"
-								alt="Particle Icon"
-								boxSize="1rem"
-								ml="0.3rem"
-								mt="0.09rem"
-							/>
-						)}
-					</Flex>
-				</>
+				<Flex
+					alignItems="center"
+					fontWeight="bold"
+					fontSize={{ base: "0.75rem", md: "1rem" }}
+					ml="0"
+				>
+					{particles !== null ? particles.toFixed(2) : "Not eligible"}
+					{particles !== null && (
+						<Image
+							src="/assets/tokens/particle.png"
+							alt="Particle Icon"
+							boxSize="1rem"
+							ml="0.3rem"
+							mt="0.09rem"
+						/>
+					)}
+				</Flex>
 			)}
 		</Flex>
 	)

@@ -52,7 +52,7 @@ const CosmosTotalParticles = () => {
 				<Flex
 					alignItems="center"
 					fontWeight="bold"
-					fontSize={{ base: "0.35rem", md: "1.5rem" }}
+					fontSize={{ base: "1.25rem", md: "1.5rem" }}
 					ml="0"
 					justifyContent="center" // Centering text and image horizontally
 				>

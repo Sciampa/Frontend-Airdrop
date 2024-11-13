@@ -33,9 +33,9 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 			h="full"
 			alignContent="center"
 			initial={{ opacity: 0 }}
-			p={{ base: 4, lg: 24, md: 16 }}
+			p={{ base: 0, lg: 24, md: 16 }}
 			w="full"
-			mt={{ base: -3, md: -90 }}
+			mt={{ base: 12, md: -90 }}
 		>
 			<Flex
 				_dark={{
@@ -67,6 +67,7 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 					px={5}
 					py={3}
 					rounded="1.25em"
+					border="1px solid rgba(224, 230, 255, 0.10)"
 					shadow="md"
 					w="full"
 					maxW="100%"
@@ -74,8 +75,8 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 					<HStack w="full">
 						<Text
 							fontFamily="body"
-							fontSize={{ base: "0.6rem", md: "2xl" }}
-							fontWeight="400"
+							fontSize={{ base: "1.35rem", md: "2xl" }}
+							fontWeight="bold"
 							textAlign="center"
 							w="full"
 							alignItems="start"
@@ -92,17 +93,19 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 					py={3}
 					rounded="1.25em"
 					shadow="md"
+					border="1px solid rgba(224, 230, 255, 0.10)"
 					w="full"
 					maxW="100%"
+					mt={{ base: "1.25rem", md: "0" }}
 				>
 					<VStack w="full" align="center" spacing={4}>
 						<Spacer />
 						<Text
 							fontFamily="arial-regular"
-							fontSize={{ base: "0.6rem", md: "xs" }}
+							fontSize={{ base: "1rem", md: "xs" }}
 							fontWeight="100"
-							textAlign="center"
-							w={{ base: "80%", md: "50%" }}
+							textAlign={{ base: "start", md: "center" }}
+							w={{ base: "100%", md: "50%" }}
 						>
 							Electron is leveling up! We're pushing for deeper decentralization, and this airdrop
 							is all about getting there by spreading the love to our early stakeholders.
@@ -110,10 +113,10 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 						<Spacer />
 						<Text
 							fontFamily="arial-regular"
-							fontSize={{ base: "0.6rem", md: "xs" }}
+							fontSize={{ base: "1rem", md: "xs" }}
 							fontWeight="100"
-							textAlign="center"
-							w={{ base: "80%", md: "50%" }}
+							textAlign={{ base: "start", md: "center" }}
+							w={{ base: "100%", md: "50%" }}
 						>
 							Think you might snag some $ELE? You're in luck if you've interacted with Electron,
 							hold specific tokens, or have staked tokens within the eligible Cosmos communities.
@@ -121,10 +124,10 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 						<Spacer />
 						<Text
 							fontFamily="arial-regular"
-							fontSize={{ base: "0.6rem", md: "xs" }}
+							fontSize={{ base: "1em", md: "xs" }}
 							fontWeight="200"
-							textAlign="center"
-							w={{ base: "80%", md: "50%" }}
+							textAlign={{ base: "start", md: "center" }}
+							w={{ base: "100%", md: "50%" }}
 						>
 							Oh, and just so you know, we snapped a snapshot on May 15th, 2024. Ready to see if
 							you're on the list? Head over to claim your $ELE now!
@@ -132,7 +135,7 @@ const Welcome: React.FC<WelcomeProps> = ({ onNext }) => {
 					</VStack>
 				</Flex>
 
-				<Flex justifyContent="center" mt={2}>
+				<Flex justifyContent="center" mt={{ base: "12", md: "2" }}>
 					<HStack>
 						<Checkbox
 							onChange={(event) => {
