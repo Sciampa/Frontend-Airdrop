@@ -255,7 +255,7 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 								: "Neutron Network Testnet",
 						url:
 							import.meta.env.VITE_NEUTRONNETWORK === "neutron"
-								? "https://app.electronprotocol.io"
+								? "https://airdrop.electronprotocol.io"
 								: "https://testnet.electronprotocol.io"
 					},
 					name: "Electron Protocol",
