@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable no-console */
 import { getModal } from "./WalletModal/getModal"
 import { type Chain } from "@chain-registry/types"
@@ -5,6 +6,7 @@ import { type Chain } from "@chain-registry/types"
 import { Registry } from "@cosmjs/proto-signing"
 import { type AminoConverters } from "@cosmjs/stargate"
 // import { GasPrice } from "@cosmjs/stargate"
+import { type MainWalletBase } from "@cosmos-kit/core"
 import { type ChainName } from "@cosmos-kit/core"
 import { type SigningCosmWasmClientOptions } from "@cosmos-kit/core/node_modules/@cosmjs/cosmwasm-stargate/build/signingcosmwasmclient"
 import { Decimal } from "@cosmos-kit/core/node_modules/@cosmjs/math/build/decimal"
@@ -264,7 +266,10 @@ export const NeutronProvider = ({ children }: { children?: React.ReactNode }) =>
 				}
 			}}
 			walletModal={getModal()}
-			wallets={[...keplrWallets, ...leapWallets]}
+			wallets={[
+				...(keplrWallets as unknown as MainWalletBase[]),
+				...(leapWallets as unknown as MainWalletBase[])
+			]}
 		>
 			{children}
 		</ChainProvider>
